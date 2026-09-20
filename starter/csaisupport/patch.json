@@ -1,7 +1,0 @@
-[
-  {
-    "op": "replace",
-    "path": "/operationName",
-    "value": "get_customer_orders"
-  }
-]
