@@ -1,0 +1,120 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "csai-order-tracker-rest-api",
+    "description" : "REST API for the CS AI Support Agent order tracker",
+    "version" : "2026-09-19T23:20:17Z"
+  },
+  "servers" : [ {
+    "url" : "https://ankydkfe0a.execute-api.us-east-1.amazonaws.com/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "prod"
+      }
+    }
+  } ],
+  "paths" : {
+    "/orders/{order_id}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "order_id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "uri" : "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:105967558577:function:order-tracker/invocations",
+          "httpMethod" : "POST",
+          "passthroughBehavior" : "when_no_match",
+          "responseTransferMode" : "BUFFERED",
+          "type" : "aws_proxy"
+        }
+      }
+    },
+    "/customers/{customer_id}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "customer_id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "uri" : "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:105967558577:function:order-tracker/invocations",
+          "httpMethod" : "POST",
+          "passthroughBehavior" : "when_no_match",
+          "responseTransferMode" : "BUFFERED",
+          "type" : "aws_proxy"
+        }
+      }
+    },
+    "/customers/{customer_id}/orders" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "customer_id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "uri" : "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:105967558577:function:order-tracker/invocations",
+          "httpMethod" : "POST",
+          "passthroughBehavior" : "when_no_match",
+          "responseTransferMode" : "BUFFERED",
+          "type" : "aws_proxy"
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Empty" : {
+        "title" : "Empty Schema",
+        "type" : "object"
+      }
+    }
+  },
+  "x-amazon-apigateway-security-policy" : "TLS_1_0"
+}

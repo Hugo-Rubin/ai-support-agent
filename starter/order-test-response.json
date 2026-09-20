@@ -1,0 +1,1 @@
+{"statusCode": 200, "headers": {"Content-Type": "application/json"}, "body": "{\"order_id\": \"ORD-001\", \"customer_id\": \"CUST-123\", \"status\": \"SHIPPED\", \"items\": [{\"name\": \"Wireless Headphones Pro\", \"qty\": 1, \"price\": 89.99}], \"total\": 89.99, \"tracking_number\": \"TRK987654321\", \"carrier\": \"UPS\", \"estimated_delivery\": \"2026-09-21\"}"}

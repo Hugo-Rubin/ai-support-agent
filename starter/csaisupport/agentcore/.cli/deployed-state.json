@@ -1,0 +1,53 @@
+{
+  "targets": {
+    "default": {
+      "resources": {
+        "runtimes": {
+          "csai_support_agent": {
+            "runtimeId": "csaisupport_csai_support_agent-jLyYz67aWf",
+            "runtimeArn": "arn:aws:bedrock-agentcore:us-east-1:105967558577:runtime/csaisupport_csai_support_agent-jLyYz67aWf",
+            "roleArn": "arn:aws:iam::105967558577:role/AgentCore-csaisupport-def-ApplicationAgentCsaiSuppo-ewwdCIavTT46"
+          }
+        },
+        "memories": {
+          "csai_support_memory": {
+            "memoryId": "csaisupport_csai_support_memory-HM1hZz3txy",
+            "memoryArn": "arn:aws:bedrock-agentcore:us-east-1:105967558577:memory/csaisupport_csai_support_memory-HM1hZz3txy"
+          }
+        },
+        "mcp": {
+          "gateways": {
+            "csai-support-gateway": {
+              "gatewayId": "csaisupport-csai-support-gateway-jiqh8uangi",
+              "gatewayArn": "arn:aws:bedrock-agentcore:us-east-1:105967558577:gateway/csaisupport-csai-support-gateway-jiqh8uangi",
+              "gatewayUrl": "https://csaisupport-csai-support-gateway-jiqh8uangi.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp",
+              "targets": {
+                "order-tracker": {
+                  "targetId": "8ZAN5K5JRZ"
+                },
+                "refund-processor": {
+                  "targetId": "ZQVR0KCXWW"
+                }
+              }
+            }
+          }
+        },
+        "knowledgeBases": {
+          "csai_support_kb": {
+            "knowledgeBaseId": "IMHCZDY37I",
+            "knowledgeBaseArn": "arn:aws:bedrock:us-east-1:105967558577:knowledge-base/IMHCZDY37I",
+            "dataSources": [
+              {
+                "dataSourceId": "QOIQNQNT7W",
+                "uri": "s3://csai-support-kb-105967558577-us-east-1/"
+              }
+            ],
+            "sourcesHash": "9ff68da8c8b33ff8936b1a3af8ca95755db71d83e68da91cabbc8114ee050018"
+          }
+        },
+        "stackName": "AgentCore-csaisupport-default",
+        "deployHash": "8ce131c7a6c30ad8"
+      }
+    }
+  }
+}

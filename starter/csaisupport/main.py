@@ -458,7 +458,6 @@ async def invoke(payload, context=None):
         agent_core_browser = AgentCoreBrowser(
             region=REGION,
         )
-        agent_core_browser._start()
 
         tools = [
             search_knowledge_base,

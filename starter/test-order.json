@@ -1,0 +1,8 @@
+{
+  "resource": "/orders/{order_id}",
+  "httpMethod": "GET",
+  "path": "/orders/ORD-001",
+  "pathParameters": {
+    "order_id": "ORD-001"
+  }
+}

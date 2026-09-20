@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schema.agentcore.aws.dev/v1/agentcore.json",
+  "name": "csaisupport",
+  "version": 1,
+  "managedBy": "CDK",
+  "tags": {
+    "agentcore:created-by": "agentcore-cli",
+    "agentcore:project-name": "csaisupport"
+  },
+  "runtimes": [
+    {
+      "name": "csai_support_agent",
+      "build": "CodeZip",
+      "entrypoint": "main.py",
+      "codeLocation": "./",
+      "runtimeVersion": "PYTHON_3_13",
+      "networkMode": "PUBLIC",
+      "protocol": "HTTP"
+    }
+  ],
+  "memories": [
+    {
+      "name": "csai_support_memory",
+      "eventExpiryDuration": 30,
+      "strategies": [
+        {
+          "type": "SEMANTIC",
+          "namespaceTemplates": [
+            "/users/{actorId}/facts"
+          ]
+        },
+        {
+          "type": "USER_PREFERENCE",
+          "namespaceTemplates": [
+            "/users/{actorId}/preferences"
+          ]
+        }
+      ]
+    }
+  ],
+  "knowledgeBases": [
+    {
+      "type": "AgentCoreKnowledgeBase",
+      "name": "csai_support_kb",
+      "description": "Amazon product catalog and customer support knowledge base",
+      "dataSources": [
+        {
+          "type": "S3",
+          "uri": "s3://csai-support-kb-105967558577-us-east-1/"
+        }
+      ]
+    }
+  ],
+  "credentials": [],
+  "evaluators": [],
+  "onlineEvalConfigs": [],
+  "agentCoreGateways": [
+    {
+      "name": "csai-support-gateway",
+      "protocolType": "MCP",
+      "description": "Customer Support AI Agent Gateway",
+      "targets": [
+        {
+          "name": "order-tracker",
+          "targetType": "apiGateway",
+          "outboundAuth": {
+            "type": "NONE"
+          },
+          "apiGateway": {
+            "restApiId": "ankydkfe0a",
+            "stage": "prod",
+            "apiGatewayToolConfiguration": {
+              "toolFilters": [
+                {
+                  "filterPath": "/*",
+                  "methods": [
+                    "GET"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "refund-processor",
+          "targetType": "lambdaFunctionArn",
+          "lambdaFunctionArn": {
+            "lambdaArn": "arn:aws:lambda:us-east-1:105967558577:function:refund-processor",
+            "toolSchemaFile": "..\\lambda\\lambda_schema"
+          }
+        }
+      ],
+      "authorizerType": "NONE",
+      "enableSemanticSearch": true,
+      "exceptionLevel": "NONE"
+    }
+  ],
+  "policyEngines": [],
+  "configBundles": [],
+  "abTests": [],
+  "harnesses": [],
+  "datasets": [],
+  "capacityProviders": [],
+  "payments": []
+}

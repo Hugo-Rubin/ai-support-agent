@@ -1,0 +1,12 @@
+{
+  "context": {
+    "client_context": {
+      "custom": {
+        "bedrockAgentCoreToolName": "initiate_refund"
+      }
+    }
+  },
+  "order_id": "ORD-002",
+  "reason": "Customer changed their mind",
+  "amount": 139.99
+}

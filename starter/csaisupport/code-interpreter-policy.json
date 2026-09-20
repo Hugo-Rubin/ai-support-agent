@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AgentCoreCodeInterpreter",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock-agentcore:StartCodeInterpreterSession",
+        "bedrock-agentcore:StopCodeInterpreterSession",
+        "bedrock-agentcore:GetCodeInterpreterSession",
+        "bedrock-agentcore:ListCodeInterpreterSessions",
+        "bedrock-agentcore:InvokeCodeInterpreter"
+      ],
+      "Resource": "arn:aws:bedrock-agentcore:us-east-1:aws:code-interpreter/*"
+    }
+  ]
+}
