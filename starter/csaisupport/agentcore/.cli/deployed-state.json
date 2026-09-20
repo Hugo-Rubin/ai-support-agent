@@ -41,8 +41,7 @@
                 "dataSourceId": "QOIQNQNT7W",
                 "uri": "s3://csai-support-kb-105967558577-us-east-1/"
               }
-            ],
-            "sourcesHash": "9ff68da8c8b33ff8936b1a3af8ca95755db71d83e68da91cabbc8114ee050018"
+            ]
           }
         },
         "stackName": "AgentCore-csaisupport-default",
